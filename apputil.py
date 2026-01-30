@@ -27,9 +27,21 @@ if __name__ == "__main__":
 
 def parentheses(sequence):
     """
-    Checks if the number of opening and closing parentheses match.
+    Checks if parentheses are balanced by ensuring the running count
+    never drops below zero and ends at exactly zero.
     """
-    return sequence.count("(") == sequence.count(")")
+    balance = 0
+    for char in sequence:
+        if char == "(":
+            balance += 1
+        elif char == ")":
+            balance -= 1
+            
+        # If balance drops below zero, there are unmatched closing parentheses
+        if balance < 0:
+            return False
+        
+    return balance == 0
 
 
 # Test program
