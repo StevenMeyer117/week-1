@@ -25,7 +25,7 @@ if __name__ == "__main__":
 # Write a function parentheses(sequence) that takes a string and returns True if the string's parentheses are balanced, False if not.
 # Try to come up with a second way to complete the problem.
 
-def is_parentheses_balanced(sequence):
+def parentheses(sequence):
     """
     Checks if the number of opening and closing parentheses match.
     """
@@ -37,5 +37,5 @@ if __name__ == "__main__":
     test_1 = "(here is a word) and (here is another word) and (here is not"
     test_2 = "(But here is a word) and (here is another word) and (here is the last word)"
 
-    print(is_parentheses_balanced(test_1))
-    print(is_parentheses_balanced(test_2))
+    print(parentheses(test_1))
+    print(parentheses(test_2))
