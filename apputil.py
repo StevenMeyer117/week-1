@@ -7,56 +7,55 @@
 # Create a function palindrome(word) that receives a string and returns True or False depending on whether it is a palindrome.
 # You can design the function to change all letters to lowercase and ignore spaces.
 
-# Function - change letters to lowercase
-def lowercase(input_string):
-    return input_string.lower()
-
-# Function - remove spaces
-def remove_spaces(input_string):
-    return input_string.replace(" ", "")
-
-# Main function - palindrome check
 def palindrome(word):
-    word = lowercase(word)
-    word = remove_spaces(word)
-    if word == word[::-1]:
-        return True
-    else:
-        return False
-    
-# Test program
-print(palindrome("Can NaC"))
+    """
+    Checks if a string is a palindrome while ignoring case or spaces.
+    """
+    word = word.lower()
+    word = "".join(char for char in word if char.isalnum())
+    return word == word[::-1]
+
+if __name__ == "__main__":
+    print(palindrome("Can NAc"))
+
+
 
 # Exercise 2:
 
 # Write a function parentheses(sequence) that takes a string and returns True if the string's parentheses are balanced, False if not.
 # Try to come up with a second way to complete the problem.
 
-# Main function - uses .count() method to check for balanced parentheses
-def parentheses(sequence):
-    if sequence.count("(") == sequence.count(")"):
-        return True
-    else: 
-        return False
-    
-# Test program
-print(parentheses("(here is a word) and (here is another word) and (here is not"))
-print(parentheses("(But here is a word) and (here is another word) and (here is the last word)"))
+def is_parentheses_balanced(sequence):
+    """
+    Checks if the number of opening and closing parentheses match.
+    """
+    return sequence.count("(") == sequence.count(")")
 
-# Second function - iterate through the string to check parentheses balance out
-def parentheses_v2(sequence):
+
+# Test program
+if __name__ == "__main__":
+    test_1 = "(here is a word) and (here is another word) and (here is not"
+    test_2 = "(But here is a word) and (here is another word) and (here is the last word)"
+
+    print(is_parentheses_balanced(test_1))
+    print(is_parentheses_balanced(test_2))
+
+# Second function
+def is_parentheses_balanced_v2(sequence):
+    """
+    Iterates through the string to check if parentheses balance out.
+    """
     balance = 0
     for char in sequence:
         if char == "(":
             balance += 1
         elif char == ")":
             balance -= 1
-        
-    if balance == 0:
-        return True
-    else:
-        return False
-    
+
+    return balance == 0
+
+
 # Test program
-print(parentheses_v2("(Here is one) and here is not)"))
-print(parentheses_v2("(And here is one) and (here is two)"))
+if __name__ == "__main__":
+    print(is_parentheses_balanced_v2("(Here is one) and here is not)"))
+    print(is_parentheses_balanced_v2("(And here is one) and (here is two)"))
