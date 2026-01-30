@@ -39,23 +39,3 @@ if __name__ == "__main__":
 
     print(is_parentheses_balanced(test_1))
     print(is_parentheses_balanced(test_2))
-
-# Second function
-def is_parentheses_balanced_v2(sequence):
-    """
-    Iterates through the string to check if parentheses balance out.
-    """
-    balance = 0
-    for char in sequence:
-        if char == "(":
-            balance += 1
-        elif char == ")":
-            balance -= 1
-
-    return balance == 0
-
-
-# Test program
-if __name__ == "__main__":
-    print(is_parentheses_balanced_v2("(Here is one) and here is not)"))
-    print(is_parentheses_balanced_v2("(And here is one) and (here is two)"))
